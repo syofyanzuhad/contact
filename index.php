@@ -1,59 +1,59 @@
 <?php
-session_start();
-if (isset($_SESSION['nama'])) {
-  if ($_SESSION['nama'] != null) {
-    header('Location: Beranda.php');
-  }
-}
-require('Controller log.php');
-if (isset($_POST['Daftar'])) {
-  if (!empty($_POST['Name']) || !empty($_POST['Password']) ) {
-    session_start();
+// session_start();
+// if (isset($_SESSION['nama'])) {
+//   if ($_SESSION['nama'] != null) {
+//     header('Location: Beranda.php');
+//   }
+// }
+// require('Controller log.php');
+// if (isset($_POST['Daftar'])) {
+//   if (!empty($_POST['Name']) || !empty($_POST['Password']) ) {
+//     session_start();
 
-    $nama = $_POST['Name'];
-    $password = sha1($_POST['Password']);
-    $email = $_POST['Email'];
-    $gender = $_POST['Gender'];
+//     $nama = $_POST['Name'];
+//     $password = sha1($_POST['Password']);
+//     $email = $_POST['Email'];
+//     $gender = $_POST['Gender'];
 
-    $daftar = new Controller();
-    $register = $daftar->register($nama, $password, $email, $gender);
-    if ($register == "Success") {
-      echo "" ?> <div class="alert alert-success  text-center" role="alert">REGISTRATION SUCCESS !</div> <?php
-      // header('Location: index.php');
-    }
-  } else {
-      echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
-  }
-} 
+//     $daftar = new Controller();
+//     $register = $daftar->register($nama, $password, $email, $gender);
+//     if ($register == "Success") {
+//       echo "" ?> <div class="alert alert-success  text-center" role="alert">REGISTRATION SUCCESS !</div> <?php
+//       // header('Location: index.php');
+//     }
+//   } else {
+//       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
+//   }
+// } 
 
-if (isset($_POST['masuk'])) {
-  if (!empty($_POST['nama']) || !empty($_POST['password'])) {
-    $namain = $_POST['nama'];
-    $passin = $_POST['password'];
-    if (isset($_POST['ingat']) || !isset($_POST['ingat'])) {
-      $cookie_name = "user";
-      setcookie($cookie_name, $namain, time() + (86400 * 30), "/"); // 86400 = 1 day;
-      $_SESSION['nama'] = $_POST['nama'];
-    }
+// if (isset($_POST['masuk'])) {
+//   if (!empty($_POST['nama']) || !empty($_POST['password'])) {
+//     $namain = $_POST['nama'];
+//     $passin = $_POST['password'];
+//     if (isset($_POST['ingat']) || !isset($_POST['ingat'])) {
+//       $cookie_name = "user";
+//       setcookie($cookie_name, $namain, time() + (86400 * 30), "/"); // 86400 = 1 day;
+//       $_SESSION['nama'] = $_POST['nama'];
+//     }
 
-    $login = new Controller();
-    $masuk = $login->logname($namain);
-    $result = $masuk->fetch(PDO::FETCH_OBJ);
-    // print_r($result->username);
+//     $login = new Controller();
+//     $masuk = $login->logname($namain);
+//     $result = $masuk->fetch(PDO::FETCH_OBJ);
+//     // print_r($result->username);
 
-    if ($result->username == $namain) {
-      if ($result->pass == $passin) {
-        header('Location: Beranda.php');
-      } else {
-        echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong password !)</div> <?php
-      }
-    } else {
-      echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong username !)</div> <?php
-    }
-  } else {
-      echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
-    }
-} 
+//     if ($result->username == $namain) {
+//       if ($result->pass == $passin) {
+//         header('Location: Beranda.php');
+//       } else {
+//         echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong password !)</div> <?php
+//       }
+//     } else {
+//       echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong username !)</div> <?php
+//     }
+//   } else {
+//       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
+//     }
+// } 
 
 if (isset($_POST['message'])) {
   if (!empty($_POST['namestr']) || !empty($_POST['emailstr']) || !empty($_POST['pesan'])) {
@@ -123,20 +123,20 @@ if (isset($_POST['message'])) {
               <div class="card-body text-left ">
                 <!-- Navbar -->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                  <li class="nav-item">
+<!--                   <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                    <a class="nav-link active" id="pills-contact-tab" data-toggle="pill" href="#contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
                   </li>
                 </ul>
 
                 <div class="tab-content" id="pills-tabContent">
 
-                  <!-- LOGIN -->
+<!--                   <!-- LOGIN -->
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <form method="post" action="index.php">
                       <div class="form-group">
@@ -185,7 +185,7 @@ if (isset($_POST['message'])) {
                       </div>
                     </form>
                   </div>
-                  <!-- Akhir PENDAFTARAN -->
+                  <!-- Akhir PENDAFTARAN --> -->
 
                   <!-- CONTACT -->
                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="pills-contact-tab">
