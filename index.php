@@ -65,8 +65,8 @@ if (isset($_POST['message'])) {
   $emailstr = $_POST['emailstr'];
   $messagestr = $_POST['pesan'];
   $to = "sofyanzuhad2@gmail.com";
-  $subject = "Message From Stranger";
-  $message = "Name : ".$namestr."\n"."SEND YOU A MESSAGE !" . "\n" ."Message :". "\n" . $messagestr;
+  $subject = "Message From ".$namestr;
+  $message = "Name : ".$namestr."\n"."Email : ".$emailstr . "\n" ."Message :". "\n" . $messagestr;
   $headers = "From: ". $emailstr . "\r\n";
     if (mail($to, $subject, $message)) {
       echo "" ?> <div class="alert alert-success fixed-top text-center" role="alert">EMAIL SENDED ! Thank You !</div> <?php
@@ -84,7 +84,7 @@ if (isset($_POST['message'])) {
 <head>
 
   <!-- Titel Browser -->
-  <title>Halaman Login Blog</title>
+  <title>Syofyan Contact</title>
 
   <!-- My CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
