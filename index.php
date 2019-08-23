@@ -9,23 +9,24 @@
 // if (isset($_POST['Daftar'])) {
 //   if (!empty($_POST['Name']) || !empty($_POST['Password']) ) {
 //     session_start();
-
 //     $nama = $_POST['Name'];
 //     $password = sha1($_POST['Password']);
 //     $email = $_POST['Email'];
 //     $gender = $_POST['Gender'];
-
 //     $daftar = new Controller();
 //     $register = $daftar->register($nama, $password, $email, $gender);
 //     if ($register == "Success") {
-//       echo "" ?> <div class="alert alert-success  text-center" role="alert">REGISTRATION SUCCESS !</div> <?php
+//       echo "" ?> 
+<!-- <div class="alert alert-success  text-center" role="alert">REGISTRATION SUCCESS !</div> -->
+ <?php
 //       // header('Location: index.php');
 //     }
 //   } else {
-//       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
+//       echo "" ?> 
+<!-- <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div>  -->
+<?php
 //   }
 // } 
-
 // if (isset($_POST['masuk'])) {
 //   if (!empty($_POST['nama']) || !empty($_POST['password'])) {
 //     $namain = $_POST['nama'];
@@ -35,12 +36,10 @@
 //       setcookie($cookie_name, $namain, time() + (86400 * 30), "/"); // 86400 = 1 day;
 //       $_SESSION['nama'] = $_POST['nama'];
 //     }
-
 //     $login = new Controller();
 //     $masuk = $login->logname($namain);
 //     $result = $masuk->fetch(PDO::FETCH_OBJ);
 //     // print_r($result->username);
-
 //     if ($result->username == $namain) {
 //       if ($result->pass == $passin) {
 //         header('Location: Beranda.php');
@@ -54,13 +53,11 @@
 //       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
 //     }
 // } 
-
 if (isset($_POST['message'])) {
   if (!empty($_POST['namestr']) || !empty($_POST['emailstr']) || !empty($_POST['pesan'])) {
   $namestr = $_POST['namestr'];
   $emailstr = $_POST['emailstr'];
   $messagestr = $_POST['pesan'];
-
   $to = "sofyanzuhad2@gmail.com";
   $subject = "Message From Stranger";
   $message = "Name : ".$namestr."\n"."SEND YOU A MESSAGE !" . "\n" ."Message :". "\n" . $messagestr;
@@ -74,7 +71,6 @@ if (isset($_POST['message'])) {
       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
   }
 }
-
 ?>
 
 <html>
@@ -99,7 +95,6 @@ if (isset($_POST['message'])) {
       margin-top: 7%;
       margin-bottom: 50px;
     }
-
     .header {
       margin-bottom: 50px;
       
@@ -136,8 +131,8 @@ if (isset($_POST['message'])) {
 
                 <div class="tab-content" id="pills-tabContent">
 
-<!--                   <!-- LOGIN -->
-                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="pills-home-tab">
+                   <!-- LOGIN -->
+                  <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <form method="post" action="index.php">
                       <div class="form-group">
                         <label for="nama">Nama</label>
@@ -153,11 +148,11 @@ if (isset($_POST['message'])) {
                       </div>
                       <button type="submit" name="masuk" value="submit" class="btn btn-primary mt-2">Masuk</button>
                     </form>
-                  </div>
+                  </div> -->
                   <!-- Akhir LOGIN -->
 
                   <!-- Pendaftaran -->
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <form method="post" action="index.php">
                       <div class="form-group ">
                         <label for="Name">Nama</label>
@@ -184,8 +179,8 @@ if (isset($_POST['message'])) {
                         </div>
                       </div>
                     </form>
-                  </div>
-                  <!-- Akhir PENDAFTARAN --> -->
+                  </div> -->
+                  <!-- Akhir PENDAFTARAN --> 
 
                   <!-- CONTACT -->
                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="pills-contact-tab">
