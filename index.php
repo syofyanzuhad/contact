@@ -44,13 +44,19 @@
 //       if ($result->pass == $passin) {
 //         header('Location: Beranda.php');
 //       } else {
-//         echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong password !)</div> <?php
+        // echo "" ?> 
+        <!-- <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong password !)</div>  -->
+        <?php
 //       }
 //     } else {
-//       echo "" ?> <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong username !)</div> <?php
+//       echo "" ?> 
+<!-- <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong username !)</div>  -->
+<?php
 //     }
 //   } else {
-//       echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
+//       echo "" ?> 
+<!-- <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div>  -->
+<?php
 //     }
 // } 
 if (isset($_POST['message'])) {
@@ -118,73 +124,22 @@ if (isset($_POST['message'])) {
               <div class="card-body text-left ">
                 <!-- Navbar -->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-<!--                   <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+                  <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#gmail" role="tab" aria-controls="pills-home" aria-selected="true">Gmail</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-                  </li> -->
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#whatsapp" role="tab" aria-controls="pills-profile" aria-selected="false">WhasApp</a>
+                  </li>
                   <li class="nav-item">
-                    <a class="nav-link active" id="pills-contact-tab" data-toggle="pill" href="#contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                    <a class="nav-link " id="pills-contact-tab" data-toggle="pill" href="#contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
                   </li>
                 </ul>
 
                 <div class="tab-content" id="pills-tabContent">
 
                    <!-- LOGIN -->
-                  <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <form method="post" action="index.php">
-                      <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="name" name="nama" class="form-control" id="nama" placeholder="Enter Your Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                      </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" name="ingat" id="akun">
-                        <label class="form-check-label" for="akun">Ingat Akun Ini</label>
-                      </div>
-                      <button type="submit" name="masuk" value="submit" class="btn btn-primary mt-2">Masuk</button>
-                    </form>
-                  </div> -->
-                  <!-- Akhir LOGIN -->
-
-                  <!-- Pendaftaran -->
-                  <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <form method="post" action="index.php">
-                      <div class="form-group ">
-                        <label for="Name">Nama</label>
-                        <input type="name" class="form-control" name="Name" id="Name" placeholder="Enter Your Name">
-
-                        <label for="Email">Email address</label>
-                        <input type="email" class="form-control" name="Email" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
-                        <label for="Password">Password</label>
-                        <input type="password" class="form-control" name="Password" id="Password" placeholder="Password">
-
-                        <label>Jenis Kelamin :</label>
-                        <div class="form-check form-check-inline ">
-                          <input class="form-check-input" type="radio" name="Gender" id="man" value="M">
-                          <label class="form-check-label" for="man">Laki-laki</label>
-                        </div>
-                        <div class="form-check form-check-inline ">
-                          <input class="form-check-input" type="radio" name="Gender" id="woman" value="F">
-                          <label class="form-check-label" for="woman">Perempuan</label>
-                        </div>
-                        <div>
-                          <button type="submit" class="btn btn-primary mt-2" name="Daftar" value="submit">Submit</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div> -->
-                  <!-- Akhir PENDAFTARAN --> 
-
-                  <!-- CONTACT -->
-                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <form method="post" action="index.php">
+                  <div class="tab-pane fade show active" id="gmail" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <form method="post" action="index.php">
                       <div class="form-group ">
                         <label for="name">Nama</label>
                         <input type="name" class="form-control" name="namestr" id="name" placeholder="Enter your name">
@@ -199,6 +154,53 @@ if (isset($_POST['message'])) {
                         <textarea name="pesan" id="pesan" class="form-control" placeholder="Write Massage"></textarea>
                       </div>
                       <button type="submit" name="message" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                  <!-- Akhir Gmail -->
+
+                  <!-- Whatsapp -->
+                  <div class="tab-pane fade" id="whatsapp" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <form method="post" action="index.php">
+                      <div class="form-group ">
+                        <label for="name2">Nama</label>
+                        <input type="name" class="form-control" name="namestr2" id="name2" placeholder="Enter your name">
+                      </div>
+                      <div class="form-group">
+                        <label for="email2">Email</label>
+                        <input type="email" class="form-control" name="emailstr2" id="email2" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group ">
+                        <label for="telp">No. Telp</label>
+                        <input type="name" class="form-control" name="namestr2" id="telp" placeholder="Enter your name">
+                        <small id="telpHelp" class="form-text text-muted">Number phone needed for message end-to-end.</small>
+                      </div>
+                      <div class="form-group ">
+                        <label for="pesan2">Pesan</label>
+                        <textarea name="pesan2" id="pesan2" class="form-control" placeholder="Write Massage"></textarea>
+                      </div>
+                      <button type="submit" name="message2" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                  <!-- Akhir Whatsapp --> 
+
+                  <!-- CONTACT -->
+                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <form method="post" action="index.php">
+                      <div class="form-group ">
+                        <label for="name3">Nama</label>
+                        <input type="name" class="form-control" name="namestr3" id="name3" placeholder="Enter your name">
+                      </div>
+                      <div class="form-group">
+                        <label for="email3">Email</label>
+                        <input type="email" class="form-control" name="emailstr3" id="email3" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group ">
+                        <label for="pesan3">Pesan</label>
+                        <textarea name="pesan3" id="pesan3" class="form-control" placeholder="Write Massage"></textarea>
+                      </div>
+                      <button type="submit" name="message3" class="btn btn-primary">Submit</button>
                     </form>
                   </div>
                   <!-- Akhir CONTACT -->
