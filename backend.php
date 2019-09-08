@@ -1,3 +1,64 @@
+<?php
+if (isset($_POST['message'])) {
+  if (!empty($_POST['namestr']) || !empty($_POST['emailstr']) || !empty($_POST['pesan'])) {
+    $namestr = $_POST['namestr'];
+    $emailstr = $_POST['emailstr'];
+    $messagestr = $_POST['pesan'];
+
+    $to = "sofyanzuhad2@gmail.com";
+    $subject = "Message From " . $emailstr;
+    $message = "Name : " . $namestr . "\n" . "Email : " . $emailstr . "\n" . "Message :" . "\n" . $messagestr . "\n" . "From : bit.ly/contact-syofyan";
+    $headers = "From: " . $emailstr . "\r\n";
+
+    if (mail($to, $subject, $message)) {
+      echo "" ?>
+      <div class="alert alert-success fixed-top text-center" role="alert">EMAIL SENDED ! Thank You !
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <?php
+    } else {
+      echo "" ?>
+      <div class="alert alert-danger  text-center" role="alert">FAILED ! (correct your email !)
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <?php
+      }  
+
+  } else {
+      echo "" ?>
+    <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> <?php
+    }
+}
+    
+        
+
+if (isset($_POST['message2'])) {
+
+  if (!empty($_POST['namestr2']) || !empty($_POST['emailstr2']) || !empty($_POST['pesanstr2'])) {
+  $namewa = $_POST['namestr2'];
+  $emailwa = $_POST['emailstr2'];
+  $telp = $_POST['telp'];
+  $pesanwa = $_POST['pesan2'];
+
+  header('location: https://api.whatsapp.com/send?phone=6281326743694&text=Assalamualaikum%0ANama: '.$namewa.'%0AEmail: '.$emailwa.'%0APhone: '.$telp.'%0APesan:'.$pesanwa);
+
+  } else {
+      echo "" ?>
+    <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> <?php
+      }
+}
+
+?>
 <html>
   <head>
   </head>
@@ -80,25 +141,3 @@
                   <!-- Akhir CONTACT -->
   </body>
 </html>
-<?php
-
-if (isset($_POST['message'])) {
-  if (!empty($_POST['namestr']) || !empty($_POST['emailstr']) || !empty($_POST['pesan'])) {
-    $namestr = $_POST['namestr'];
-    $emailstr = $_POST['emailstr'];
-    $messagestr = $_POST['pesan'];
-    $to = "sofyanzuhad2@gmail.com";
-    $subject = "Message From Stranger";
-    $message = "Name : " . $namestr . "\n" . "SEND YOU A MESSAGE !" . "\n" . "Message :" . "\n" . $messagestr;
-    $headers = "From: " . $emailstr . "\r\n";
-    if (mail($to, $subject, $message)) {
-      echo "" ?> <div class="alert alert-success fixed-top text-center" role="alert">EMAIL SENDED ! Thank You !</div> <?php
-    } else {
-      echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (correct your email !)</div> <?php
-      }
-  } else {
-    echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)
-</div> <?php
-  }
-}
-?>
