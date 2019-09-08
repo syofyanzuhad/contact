@@ -1,82 +1,63 @@
 <?php
-// session_start();
-// if (isset($_SESSION['nama'])) {
-//   if ($_SESSION['nama'] != null) {
-//     header('Location: Beranda.php');
-//   }
-// }
-// require('Controller log.php');
-// if (isset($_POST['Daftar'])) {
-//   if (!empty($_POST['Name']) || !empty($_POST['Password']) ) {
-//     session_start();
-//     $nama = $_POST['Name'];
-//     $password = sha1($_POST['Password']);
-//     $email = $_POST['Email'];
-//     $gender = $_POST['Gender'];
-//     $daftar = new Controller();
-//     $register = $daftar->register($nama, $password, $email, $gender);
-//     if ($register == "Success") {
-//       echo "" ?> 
-<!-- <div class="alert alert-success  text-center" role="alert">REGISTRATION SUCCESS !</div> -->
- <?php
-//       // header('Location: index.php');
-//     }
-//   } else {
-//       echo "" ?> 
-<!-- <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div>  -->
-<?php
-//   }
-// } 
-// if (isset($_POST['masuk'])) {
-//   if (!empty($_POST['nama']) || !empty($_POST['password'])) {
-//     $namain = $_POST['nama'];
-//     $passin = $_POST['password'];
-//     if (isset($_POST['ingat']) || !isset($_POST['ingat'])) {
-//       $cookie_name = "user";
-//       setcookie($cookie_name, $namain, time() + (86400 * 30), "/"); // 86400 = 1 day;
-//       $_SESSION['nama'] = $_POST['nama'];
-//     }
-//     $login = new Controller();
-//     $masuk = $login->logname($namain);
-//     $result = $masuk->fetch(PDO::FETCH_OBJ);
-//     // print_r($result->username);
-//     if ($result->username == $namain) {
-//       if ($result->pass == $passin) {
-//         header('Location: Beranda.php');
-//       } else {
-        // echo "" ?> 
-        <!-- <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong password !)</div>  -->
-        <?php
-//       }
-//     } else {
-//       echo "" ?> 
-<!-- <div class="alert alert-danger fixed-top text-center" role="alert">LOGIN FAILED ! (wrong username !)</div>  -->
-<?php
-//     }
-//   } else {
-//       echo "" ?> 
-<!-- <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div>  -->
-<?php
-//     }
-// } 
 if (isset($_POST['message'])) {
   if (!empty($_POST['namestr']) || !empty($_POST['emailstr']) || !empty($_POST['pesan'])) {
-  $namestr = $_POST['namestr'];
-  $emailstr = $_POST['emailstr'];
-  $messagestr = $_POST['pesan'];
-  $to = "sofyanzuhad2@gmail.com";
-  $subject = "Message From ".$namestr;
-  $message = "Name : ".$namestr."\n"."Email : ".$emailstr . "\n" ."Message :". "\n" . $messagestr;
-  $headers = "From: ". $emailstr . "\r\n";
+    $namestr = $_POST['namestr'];
+    $emailstr = $_POST['emailstr'];
+    $messagestr = $_POST['pesan'];
+
+    $to = "sofyanzuhad2@gmail.com";
+    $subject = "Message From " . $emailstr;
+    $message = "Name : " . $namestr . "\n" . "Email : " . $emailstr . "\n" . "Message :" . "\n" . $messagestr . "\n" . "From : bit.ly/contact-syofyan";
+    $headers = "From: " . $emailstr . "\r\n";
+
     if (mail($to, $subject, $message)) {
-      echo "" ?> <div class="alert alert-success fixed-top text-center" role="alert">EMAIL SENDED ! Thank You !</div> <?php
+      echo "" ?>
+      <div class="alert alert-success fixed-top text-center" role="alert">EMAIL SENDED ! Thank You !
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <?php
     } else {
-      echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (correct your email !)</div> <?php
-    }
+      echo "" ?>
+      <div class="alert alert-danger  text-center" role="alert">FAILED ! (correct your email !)
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <?php
+      }  
+
   } else {
-      echo "" ?> <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)</div> <?php
-  }
+      echo "" ?>
+    <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> <?php
+    }
 }
+    
+        
+
+if (isset($_POST['message2'])) {
+
+  if (!empty($_POST['namestr2']) || !empty($_POST['emailstr2']) || !empty($_POST['pesanstr2'])) {
+  $namewa = $_POST['namestr2'];
+  $emailwa = $_POST['emailstr2'];
+  $telp = $_POST['telp'];
+  $pesanwa = $_POST['pesan2'];
+
+  header('location: https://api.whatsapp.com/send?phone=6281326743694&text=Assalamualaikum%0ANama: '.$namewa.'%0AEmail: '.$emailwa.'%0APhone: '.$telp.'%0APesan:'.$pesanwa);
+
+  } else {
+      echo "" ?>
+    <div class="alert alert-danger  text-center" role="alert">FAILED ! (every element must be writed !)
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> <?php
+      }
+}
+
 ?>
 
 <html>
@@ -98,12 +79,42 @@ if (isset($_POST['message'])) {
   <style>
     .login {
       position: sticky;
-      margin-top: 7%;
+      margin-top: 3%;
       margin-bottom: 50px;
     }
+
     .header {
       margin-bottom: 50px;
-      
+    }
+
+    body {
+      background: url("img/connect.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: 35%;
+    }
+
+    .card .card-body {
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 1);
+      position: absolute;
+      border-radius: 2%;
+      opacity: 0.6;
+    }
+
+    textarea {
+      min-height: 150px;
+    }
+
+    small {
+      -webkit-text-fill-color: royalblue;
     }
   </style>
 
@@ -113,13 +124,13 @@ if (isset($_POST['message'])) {
 
   <section class="login " id="main-page">
     <!-- Container -->
-    <div class="container text-center">
+    <div class="container text-center text-light">
       <h1 class="header ">Selamat Datang !</h1>
       <!-- ROW -->
       <div class="row justify-content-center ">
-        <div class="col-md-5 ">
+        <div class="col-md-10 ">
           <!-- Card -->
-          <div class="card text-center">
+          <div class="card text-center bg-transparent">
             <div class="card-header">
               <div class="card-body text-left ">
                 <!-- Navbar -->
@@ -128,7 +139,7 @@ if (isset($_POST['message'])) {
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#gmail" role="tab" aria-controls="pills-home" aria-selected="true">Gmail</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#whatsapp" role="tab" aria-controls="pills-profile" aria-selected="false">WhasApp</a>
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#whatsapp" role="tab" aria-controls="pills-profile" aria-selected="false">WhatsApp</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link " id="pills-contact-tab" data-toggle="pill" href="#contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
@@ -137,70 +148,70 @@ if (isset($_POST['message'])) {
 
                 <div class="tab-content" id="pills-tabContent">
 
-                   <!-- LOGIN -->
-                  <div class="tab-pane fade show active" id="gmail" role="tabpanel" aria-labelledby="pills-home-tab">
-                  <form method="post" action="index.php">
+                  <!-- GMAIL -->
+                  <div class="tab-pane fade show active" id="gmail" role="tabpanel" aria-labelledby="pills-home-tab" required>
+                    <form method="post" action="index.php">
                       <div class="form-group ">
                         <label for="name">Nama</label>
                         <input type="name" class="form-control" name="namestr" id="name" placeholder="Enter your name">
                       </div>
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="emailstr" id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <input type="email" class="form-control" name="emailstr" id="email" aria-describedby="emailHelp" placeholder="Enter your email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group ">
                         <label for="pesan">Pesan</label>
-                        <textarea name="pesan" id="pesan" class="form-control" placeholder="Write Massage"></textarea>
+                        <textarea name="pesan" id="pesan" class="form-control" placeholder="Write Massage" required></textarea>
                       </div>
-                      <button type="submit" name="message" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="message" class="btn btn-primary">SEND</button>
                     </form>
                   </div>
                   <!-- Akhir Gmail -->
 
                   <!-- Whatsapp -->
                   <div class="tab-pane fade" id="whatsapp" role="tabpanel" aria-labelledby="pills-profile-tab">
-                  <form method="post" action="index.php">
+                    <form method="post" action="index.php">
                       <div class="form-group ">
                         <label for="name2">Nama</label>
-                        <input type="name" class="form-control" name="namestr2" id="name2" placeholder="Enter your name">
+                        <input type="name" class="form-control" name="namestr2" id="name2" placeholder="Enter your name" required>
                       </div>
                       <div class="form-group">
                         <label for="email2">Email</label>
-                        <input type="email" class="form-control" name="emailstr2" id="email2" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <input type="email" class="form-control" name="emailstr2" id="email2" aria-describedby="emailHelp" placeholder="Enter your email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group ">
                         <label for="telp">No. Telp</label>
-                        <input type="name" class="form-control" name="namestr2" id="telp" placeholder="Enter your name">
+                        <input type="name" class="form-control" name="telp" id="telp" placeholder="+62...">
                         <small id="telpHelp" class="form-text text-muted">Number phone needed for message end-to-end.</small>
                       </div>
                       <div class="form-group ">
                         <label for="pesan2">Pesan</label>
-                        <textarea name="pesan2" id="pesan2" class="form-control" placeholder="Write Massage"></textarea>
+                        <textarea name="pesan2" id="pesan2" class="form-control" placeholder="Write Massage" required></textarea>
                       </div>
-                      <button type="submit" name="message2" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="message2" class="btn btn-primary">SEND</button>
                     </form>
                   </div>
-                  <!-- Akhir Whatsapp --> 
+                  <!-- Akhir Whatsapp -->
 
                   <!-- CONTACT -->
                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                     <form method="post" action="index.php">
                       <div class="form-group ">
                         <label for="name3">Nama</label>
-                        <input type="name" class="form-control" name="namestr3" id="name3" placeholder="Enter your name">
+                        <input type="name" class="form-control" name="namestr3" id="name3" placeholder="Enter your name" required>
                       </div>
                       <div class="form-group">
                         <label for="email3">Email</label>
-                        <input type="email" class="form-control" name="emailstr3" id="email3" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <input type="email" class="form-control" name="emailstr3" id="email3" aria-describedby="emailHelp" placeholder="Enter your email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group ">
                         <label for="pesan3">Pesan</label>
-                        <textarea name="pesan3" id="pesan3" class="form-control" placeholder="Write Massage"></textarea>
+                        <textarea name="pesan3" id="pesan3" class="form-control" placeholder="Write Massage" required></textarea>
                       </div>
-                      <button type="submit" name="message3" class="btn btn-primary">Submit</button>
+                      <button type="submit" name="message3" class="btn btn-primary">SEND</button>
                     </form>
                   </div>
                   <!-- Akhir CONTACT -->
